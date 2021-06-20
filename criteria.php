@@ -20,3 +20,11 @@ $criteria->add(new TFilter('idade', 'IN', array(24, 25, 26)));
 $criteria->add(new TFilter('idade', 'NOT IN', array(10)));
 echo $criteria->dump();
 echo "\n";
+
+// aqui vemos um exemplo de critério utilizando operador de comparação LIKE
+// o nome dever iniciar por 'pedro' ou deve iniciar por 'maria'
+$criteria = new TCriteria;
+$criteria->add(new TFilter('nome', 'like', 'pedro%'), TExpression::OR_OPERATOR);
+$criteria->add(new TFilter('idade', 'like', 'maria%'), TExpression::OR_OPERATOR);
+echo $criteria->dump();
+echo "\n";
